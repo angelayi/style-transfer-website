@@ -286,6 +286,18 @@ class StyleTransfer:
     def run(self, contentUploaded, styleUploaded): 
         tf.compat.v1.enable_eager_execution()
 
+        contentImage = Image.open(BytesIO(contentUploaded))
+
+        dim = (700, 650)
+        if(contentImage.size < (200, 200) or contentImage.size > (800, 800)):
+            contentImage = contentImage.resize(dim, Image.ANTIALIAS)
+
+        buff = BytesIO()
+        contentImage.save(buff, format='PNG')
+        
+        contentUploaded = buff.getvalue()
+
+        
         bestImg, best_loss = self.run_style_transfer(contentUploaded, 
                                             styleUploaded)
 
