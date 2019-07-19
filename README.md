@@ -60,7 +60,7 @@ Next, we look at the core logic file, _style_transfer.py_ which can be found on 
 We will need to install the following libraries:
 
 ```console
-pip install �U matplotlib
+pip install -U matplotlib
 pip install Pillow
 pip install ipython
 ```
