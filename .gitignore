@@ -1,0 +1,4 @@
+node_modules
+flask
+__pycache__
+package-lock.json
